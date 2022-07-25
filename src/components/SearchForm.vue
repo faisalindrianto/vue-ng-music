@@ -33,10 +33,12 @@
 
       <button
         type="submit"
-        class="text-white hover:bg-purple-400 focus:outline-none focus:ring-2 focus:ring-purple-300 font-medium rounded-full text-sm px-5 py-2.5 text-center"
+        class="flex items-center justify-center text-white hover:bg-purple-400 focus:outline-none focus:ring-2 focus:ring-purple-300 font-medium rounded-full text-sm px-5 py-2.5"
         :class="props.primaryButton ? 'bg-gradient-purple' : 'bg-white bg-opacity-40'"
+        :disabled="searchStore.searchLoading"
       >
-        Search
+        <div v-if="searchStore.searchLoading" class="loader"></div>
+        <span v-else>Search</span>
       </button>
     </div>
   </form>
@@ -45,5 +47,19 @@
 <style>
 .bg-gradient-purple {
   background-image: linear-gradient(98deg, #712bda, #a45deb) !important;
+}
+
+.loader {
+  border: 2px solid #f3f3f3; /* Light grey */
+  border-top: 2px solid #3498db; /* Blue */
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  animation: spin 1.4s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
 }
 </style>
