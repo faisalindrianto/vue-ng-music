@@ -3,12 +3,14 @@ import { RouterView } from 'vue-router'
 </script>
 
 <template>
-  <div class="screen-wrapper">
-    <router-view v-slot="{ Component }">
-      <transition name="slide-fade" appear mode="out-in">
-        <component :is="Component" />
-      </transition>
-    </router-view>
+  <div class="flex items-center justify-center h-screen">
+    <div class="screen-wrapper w-full h-full">
+      <router-view v-slot="{ Component }">
+        <transition name="slide-fade" appear mode="out-in">
+          <component :is="Component" />
+        </transition>
+      </router-view>
+    </div>
   </div>
 </template>
 
