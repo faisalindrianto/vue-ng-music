@@ -24,17 +24,24 @@ const search = ref()
       /> 
     </div>
 
-    <div class="flex my-8">
+    <div class="flex flex-wrap items-center justify-center my-8">
       <span class="mr-2 text-base text-gray-500">Search result for : </span>
       <h6 class="text-purple-700 font-bold">{{ searchStore.searchKeyword }}</h6>
     </div>
 
-    <div class="search-result-list w-full px-8">
+    <div
+      v-if="searchStore.searchResult.length"
+      class="search-result-list w-full px-8"
+    >
       <ResultCard
         v-for="(data, index) in searchStore.searchResult"
         :key="index"
         :data="data"
       />
+    </div>
+
+    <div v-else>
+      <span class="mr-2 text-lg text-gray-300">Can't find the music :(</span>
     </div>
 
     <SearchOverlay ref="search" />
