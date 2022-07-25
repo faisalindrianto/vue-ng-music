@@ -1,6 +1,6 @@
 # Ng Music
 
-Exploring Vue 3 Pinia, and Tailwind CSS by building iTunes Music Search.
+Exploring Vue 3, Pinia, and Tailwind CSS by building iTunes Music Search.
 
 ## Features
 - Vue 3 + Composition API
